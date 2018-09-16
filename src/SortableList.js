@@ -170,8 +170,8 @@ export default class SortableList extends Component {
     // Scroll if the row is not visible.
     if (
       this.props.horizontal
-        ? (keyX < this._contentOffset.x || keyX > this._contentOffset.x + containerLayout.width)
-        : (keyY < this._contentOffset.y || keyY > this._contentOffset.y + containerLayout.height)
+        ? (keyX < this._contentOffset.x || keyX >= this._contentOffset.x + containerLayout.width)
+        : (keyY < this._contentOffset.y || keyY >= this._contentOffset.y + containerLayout.height)
     ) {
       if (this.props.horizontal) {
         this._contentOffset.x = keyX;
@@ -591,7 +591,7 @@ export default class SortableList extends Component {
     }));
 
     if (this.props.onReleaseRow) {
-      this.props.onReleaseRow(rowKey);
+      this.props.onReleaseRow(rowKey, this.state.order);
     }
   };
 
