@@ -56,7 +56,7 @@ Called when rows were reordered, takes an array of rows keys of the next rows or
 `(key) => void`<br />
 Called when a row was activated (user long tapped).
 - **onReleaseRow?** (function)<br />
-`(key) => void`<br />
+`(key, nextOrder) => void`<br />
 Called when the active row was released.
 - **onPressRow?** (function)<br />
 `(key) => void`<br />
